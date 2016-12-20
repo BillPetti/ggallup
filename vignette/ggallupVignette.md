@@ -49,6 +49,8 @@ q1_plot <- ggplot(sample_data_mean, aes(factor(group), Q1)) +
 q1_plot
 ```
 
+![image](https://github.com/BillPetti/ggallup/blob/master/images/q1_plot.png?raw=true)
+
 The plot colors each data based on the number of PAs in a given player's season.
 
 If we pass our saved plot object to the `ggallup` function it will reformat the plot accordingly:
@@ -58,6 +60,8 @@ q1_plot_gallup <- ggallup(q1_plot)
 
 q1_plot_gallup
 ```
+
+![image](https://github.com/BillPetti/ggallup/blob/master/images/q1_plot_gallup.png?raw=true)
 
 The plot is still using `ggplot2`'s standard color scale. What if we wanted those colors to be compliant with Gallup standards? For that we can use the `gallup_palette` object. If we call the object we can see the hexidecimal codes for the colors:
 
@@ -74,6 +78,8 @@ q1_plot_gallup_palette <- ggallup(q1_plot +
     
 q1_plot_gallup_palette
 ```
+
+![image](https://github.com/BillPetti/ggallup/blob/master/images/q1_plot_gallup_palette.png?raw=true)
 
 Here is another example:
 
@@ -102,3 +108,5 @@ forecast_plot <- ggallup(forecast_melt %>%
   
 forecast_plot
 ```
+
+![image](https://github.com/BillPetti/ggallup/blob/master/images/forecast_plot.png?raw=true)

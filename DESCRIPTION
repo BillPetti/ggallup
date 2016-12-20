@@ -4,6 +4,8 @@ Title: This package loads custom ggplot themes and palettes that make creating g
 Version: 0.1.0
 Author: Bill Petti
 Maintainer: Bill Petti <bill_petti@gallup.com>
+Depends:
+  ggplot2
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

@@ -51,12 +51,12 @@ q1_plot
 
 The plot colors each data based on the number of PAs in a given player's season.
 
-If we apply the `theme_gallup`, here's what the same chart would look like:
+If we pass our saved plot object to the `ggallup` function it will reformat the plot accordingly:
 
 ``````{r, warning=FALSE, message=FALSE}
+q1_plot_gallup <- ggallup(q1_plot)
 
-ggallup(q1_plot)
-
+q1_plot_gallup
 ```
 
 The plot is still using `ggplot2`'s standard color scale. What if we wanted those colors to be compliant with Gallup standards? For that we can use the `gallup_palette` object. If we call the object we can see the hexidecimal codes for the colors:
@@ -66,9 +66,39 @@ gallup_palette
 [1] "#007934" "#61C250" "#C3E76F" "#A0A19E" "#7D7F7E" "#404545"
 ```
 
-The palette includes our three greens as well as three greys. You can use `scale_fill_continuous` in this case to apply the palette to our current group:
+The palette includes our three greens as well as three greys. Let's color code each bar based on the group it represents using `scale_fill_manual` and specifying `gallup_palette` in the `values` argument:
 
 ``````{r, warning=FALSE, message=FALSE}
-ggallup(q1_plot + 
+q1_plot_gallup_palette <- ggallup(q1_plot + 
     scale_fill_manual(values = gallup_palette, "Group"))
+    
+q1_plot_gallup_palette
+```
+
+Here is another example:
+
+```
+forecast <- data_frame(Date = c("2015-1", "2015-2", "2015-3", "2015-4", "2016-1", "2016-2", "2016-3", "2016-4", "2017-1", "2017-2", "2017-3", "2017-4", "2018-1", "2018-2"), Sales = c(123657, 138786, 135784, 170495, 134050, 145450, 110090, 156504, 123580, 144678, 139087, 167098, 132456, 147564))
+
+forecast_melt <- forecast %>%
+  gather(key = key, value = 'Sales in Millions', -Date)
+
+forecast_melt <- forecast_melt %>%
+  mutate(group = c("Actuals", "Actuals", "Actuals", "Actuals", 
+                   "Actuals", "Actuals", "Actuals", "Actuals", 
+                   "Forecast", "Forecast", "Forecast", "Forecast", 
+                   "Forecast", "Forecast"))
+
+forecast_plot <- ggallup(forecast_melt %>%
+  ggplot(aes(x = Date, y = `Sales in Millions`, group = 1)) +
+  geom_point(aes(color = group)) +
+  geom_line(linetype = "dashed", color = "#61C250") +
+  geom_line(data = filter(forecast_melt, group == "Actuals"), aes(color = group)) +
+  xlab("\nQuarter") +
+  ylab("\nSales in Millions\n") +
+  ggtitle("\nExample: Actual & Forecasted Sales (MM)\n") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_color_manual(values = gallup_palette, ""))
+  
+forecast_plot
 ```

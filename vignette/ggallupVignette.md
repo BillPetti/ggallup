@@ -9,6 +9,14 @@ output: html_document
 
 This package contains a custom `ggplot2` theme that aligns with Gallup's general brand standards, as well as a custom palette that includes current colors that also align to Gallup's standards.
 
+It includes three objects and two functions that are loaded when the package is loaded:
+
+* `ggallup`: A function to format `ggplot2` objects
+* `ggallup_md`: A function to format `ggplot2` objects for use in markdown documents
+* `theme_gallup`: A custom ggplot2 theme
+* `theme_gallup_md`: The same custom theme as `theme_gallup`, but it has been tweaked to work better when producing `rmarkdown` documents
+* `gallup_palette`: A custom palette that has the current Gallup brand colors included
+
 To see how they work, let's load some sample survey data and place each respondent into one of three groups:
 
 ```{r, warning=FALSE, message=FALSE}

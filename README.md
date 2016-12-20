@@ -10,6 +10,9 @@ It includes three objects that are loaded when the package is loaded:
 The package can be loaded using the `devtools` package:
 
 ```
-install_github("BillPetti/ggallup")
+require(devtools)
+install_github("BillPetti/ggallup", force = TRUE)
 require(ggallup)
 ```
+
+See the [vignette](https://github.com/BillPetti/ggallup/blob/master/vignette/ggallupVignette.md) for some usage examples

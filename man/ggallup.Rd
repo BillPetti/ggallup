@@ -10,7 +10,7 @@ ggallup(plot)
 \item{plot}{A ggplot object to apply the formatting to}
 }
 \description{
-Use gallup() when creating a plots that will be used in PowerPoint; use gallup_markdown() when creating plots for markdown documents
+Apply Gallup-specific formatting to ggplot objects
 }
 \examples{
 \dontrun{ggallup(plot)}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Apply Gallup-specific formatting to ggplot objects used in markdown documents\n#'\n#' @param plot A ggplot object to apply the formatting to\n#' @export\n#' @examples\n#' \\dontrun{ggallup(plot)}\n\nggallup_markdown <- function(plot) {\n  plot_gallup <- plot +\n    theme_gallup_md()\n  plot_gallup\n}\n",
+    "created" : 1482240385500.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2296398421",
+    "id" : "3D5C41B4",
+    "lastKnownWriteTime" : 1482240416,
+    "last_content_update" : 1482240416673,
+    "path" : "~/ggallup/R/ggallup_markdown.R",
+    "project_path" : "R/ggallup_markdown.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

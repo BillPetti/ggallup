@@ -71,7 +71,7 @@ q1_plot_gallup
 
 ![image](https://github.com/BillPetti/ggallup/blob/master/images/q1_plot_gallup.png?raw=true)
 
-The plot is still using `ggplot2`'s standard color scale. What if we wanted those colors to be compliant with Gallup standards? For that we can use the `gallup_palette` object. If we call the object we can see the hexidecimal codes for the colors:
+The plot is still using `ggplot2`'s standard color scale. What if we wanted those colors to be compliant with Gallup standards? For that we can use the `gallup_palette` object. If we call the object we can see the hexadecimal codes for the colors:
 
 ``````{r, warning=FALSE, message=FALSE}
 gallup_palette

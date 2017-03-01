@@ -71,18 +71,17 @@ q1_plot_gallup
 
 ![image](https://github.com/BillPetti/ggallup/blob/master/images/q1_plot_gallup.png?raw=true)
 
-The plot is still using `ggplot2`'s standard color scale. What if we wanted those colors to be compliant with Gallup standards? For that we can use the `gallup_palette` object. If we call the object we can see the hexadecimal codes for the colors:
+The plot is still using `ggplot2`'s standard color scale. What if we wanted those colors to be compliant with Gallup standards? For that we can use the scale_color_gallup object. This maps factors to colors enumerated in the `gallup_palette` object. If we call the object we can see the hexadecimal codes for the colors:
 
 ``````{r, warning=FALSE, message=FALSE}
 gallup_palette
 [1] "#007934" "#61C250" "#C3E76F" "#A0A19E" "#7D7F7E" "#404545"
 ```
 
-The palette includes our three greens as well as three greys. Let's color code each bar based on the group it represents using `scale_fill_manual` and specifying `gallup_palette` in the `values` argument:
+The palette includes our three greens as well as three greys. Let's color code each bar based on the group it represents using `scale_fill_gallup`:
 
 ``````{r, warning=FALSE, message=FALSE}
-q1_plot_gallup_palette <- ggallup(q1_plot + 
-    scale_fill_manual(values = gallup_palette, "Group"))
+q1_plot_gallup_palette <- ggallup(q1_plot) +scale_fill_gallup()
     
 q1_plot_gallup_palette
 ```
@@ -112,7 +111,7 @@ forecast_plot <- ggallup(forecast_melt %>%
   ylab("\nSales in Millions\n") +
   ggtitle("\nExample: Actual & Forecasted Sales (MM)\n") +
   scale_y_continuous(labels = scales::comma) +
-  scale_color_manual(values = gallup_palette, ""))
+  scale_color_gallup()
   
 forecast_plot
 ```

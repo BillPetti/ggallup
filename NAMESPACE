@@ -2,3 +2,5 @@
 
 export(ggallup)
 export(ggallup_markdown)
+export(scale_color_gallup)
+export(scale_fill_gallup)
